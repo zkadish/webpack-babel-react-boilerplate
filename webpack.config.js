@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('webpack-html-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 const extractSass = new ExtractTextWebpackPlugin({
@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'The Minimal React Webpack Babel Setup',
+      title: 'The Minimal React Webpack Babel Setup!z',
       template: 'src/index.html',
       inject: true
     }),
