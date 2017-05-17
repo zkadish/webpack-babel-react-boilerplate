@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import './sass/app.scss';
+import Store from 'redux/store';
+import App from 'components/App';
+
+import 'sass/app.scss';
 
 const title ='My Minimal React Webpack Babel Setup!';
-console.log('My Minimal React Webpack Babel Setup!');
 
 ReactDOM.render(
-  <div>{title}</div>,
+  <Provider store={Store}>
+    <App>{title}</App>
+  </Provider>,
   document.getElementById('app')
 )
 

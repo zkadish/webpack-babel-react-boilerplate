@@ -1,12 +1,19 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
+const GLOBALS = {
+  __DEV__: JSON.stringify(process.env.NODE_ENV === "development")
+}
+
+console.log(GLOBALS.__DEV__);
 
 const extractSass = new ExtractTextWebpackPlugin({
   filename: "[name].[contenthash].css",
   disable: process.env.NODE_ENV === "development"
 });
-
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
 module.exports = {
   entry: {
@@ -46,8 +53,9 @@ module.exports = {
     hot: true
   },
   plugins: [
+    new webpack.DefinePlugin(GLOBALS),
     new HtmlWebpackPlugin({
-      title: 'The Minimal React Webpack Babel Setup!z',
+      title: 'The Minimal React Webpack Babel Setup!',
       template: 'src/index.html',
       inject: true
     }),
