@@ -11,8 +11,6 @@ if (__DEV__) {
 
 const Reducer = combineReducers({reducers});
 
-
-
 const Store = createStore(
   Reducer,
   applyMiddleware(...middleWares)

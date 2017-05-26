@@ -14,8 +14,6 @@ function App({number, increment, decrement}) {
   )
 }
 
-
-
 export default connect(
   (state) => ({
     number: state.reducers,
