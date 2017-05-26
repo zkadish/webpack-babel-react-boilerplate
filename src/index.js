@@ -7,13 +7,11 @@ import App from 'components/App';
 
 import 'sass/app.scss';
 
-const title ='My Minimal React Webpack Babel Setup!';
-
 ReactDOM.render(
   <Provider store={Store}>
-    <App>{title}</App>
+    <App />
   </Provider>,
   document.getElementById('app')
-)
+);
 
 module.hot.accept();

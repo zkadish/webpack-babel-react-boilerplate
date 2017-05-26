@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 
 import * as action from 'redux/actions/actions';
 
-function App({children, number, increment, decrement}) {
+function App({number, increment, decrement}) {
   return(
-    <div>
-      {children}
-      <br />
+    <div className="app-container">
+      <h2>Awesome App!</h2>
       <button onClick={() => increment()}>increment</button>
       <button onClick={() => decrement()}>decrement</button>
-      <div>{number}</div>
+      <div className="number">{number}</div>
     </div>
   )
 }
