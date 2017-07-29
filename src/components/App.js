@@ -15,10 +15,10 @@ function App({number, increment, decrement}) {
 }
 
 export default connect(
-  (state) => ({
+  state => ({
     number: state.reducers,
   }),
-  (dispatch) => ({
+  dispatch => ({
     increment: () => dispatch(action.increment()),
     decrement: () => dispatch(action.decrement()),
   }),
