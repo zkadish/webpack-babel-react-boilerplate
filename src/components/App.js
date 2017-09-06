@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as action from 'redux/actions/actions';
+import * as action from 'src/redux/actions/actions';
 
 function App({number, increment, decrement}) {
   return (
