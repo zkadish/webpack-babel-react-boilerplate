@@ -1,14 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import Button from 'src/components/Button';
 import * as action from 'src/redux/actions/actions';
 
 function App({number, increment, decrement}) {
   return (
     <div className="app-container">
-      <h2>Awesome App!</h2>
-      <button onClick={() => increment()}>increment</button>
-      <button onClick={() => decrement()}>decrement</button>
+      <h2>++ -- App!</h2>
+      <Button
+        name="increment"
+        action={increment}
+      />
+      <Button
+        name="decrement"
+        action={decrement}
+      />
       <div className="number">{number}</div>
     </div>
   );
