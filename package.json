@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha-webpack --webpack-config webpack.config-test.js \"test/**/*.test.js\"",
+    "test": "mocha-webpack --webpack-config webpack.test.js \"test/**/*.test.js\"",
+    "test:watch": "npm test -- --watch",
     "prebuild": "rm -rf dist",
     "build": "export NODE_ENV=production; webpack -p --config ./webpack.prod.js",
     "postbuild": "cp src/assets/favicon.ico dist/",

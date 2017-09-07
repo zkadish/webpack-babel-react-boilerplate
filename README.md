@@ -1,16 +1,21 @@
-# react-webpack-babel boilerplate
-
+# React Weboack Bable Mohca Boilerplate
 
 - react
 - redux
 
 - babel
-- eslint
+- eslint - airb&b
 - html5 boilerplate
 - sass
 - webpack
-
+- mocha
+- chai
 
 bibliography:
-I started this project with Robins Wieruch's minimal react webpack babel setup tutorial:
-https://www.robinwieruch.de/minimal-react-webpack-babel-setup/
+webpack.config.js is based directly off webpack's documentation:
+https://webpack.js.org/
+
+mocha unit tests are based on the following pages and project:
+http://randycoulman.com/blog/2016/03/22/testing-with-mocha-and-webpack/
+https://facebook.github.io/react/docs/test-utils.html
+https://github.com/newyork-anthonyng/tutorials/tree/master/Simple_React_Testing
