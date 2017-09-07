@@ -1,8 +1,8 @@
-const defaultState = {};
+const defaultState = 0;
 
 
-function reducer(state = 0, action) {
-  switch(action.type) {
+function reducer(state = defaultState, action) {
+  switch (action.type) {
     case 'INCREMENT':
       return state + 1;
     case 'DECREMENT':

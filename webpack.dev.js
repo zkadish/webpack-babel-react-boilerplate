@@ -5,7 +5,7 @@ const common = require('./webpack.common.js'); // eslint-disable-line
 module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: JSON.stringify(process.env.NODE_ENV === "development")
+      DEVELOPMENT: JSON.stringify(process.env.NODE_ENV === 'development'),
     }),
   ],
   devtool: 'cheap-module-source-map',

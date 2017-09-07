@@ -14,7 +14,7 @@ module.exports = {
     app: './src/index.js',
   },
   output: {
-    path: path.resolve(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].js',
   },
@@ -30,7 +30,7 @@ module.exports = {
         loader: extractSass.extract({
           use: [
             { loader: 'css-loader' },
-            { loader: 'sass-loader' }
+            { loader: 'sass-loader' },
           ],
           fallback: 'style-loader',
         }),
@@ -51,4 +51,4 @@ module.exports = {
     }),
     extractSass,
   ],
-}
+};

@@ -14,6 +14,6 @@ ReactDOM.render(
   document.getElementById('app'),
 );
 
-if (DEVELOPMENT) {
+if (DEVELOPMENT) { // eslint-disable-line
   module.hot.accept();
 }
