@@ -1,11 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 
 import reducers from 'src/redux/reducers/reducer';
 
 const middleWares = [];
 
-if (DEVELOPMENT) {
+if (DEVELOPMENT) { // eslint-disable-line
+  const logger = createLogger({
+    collapsed: (getState, action, logEntry) => !logEntry.error,
+  });
   middleWares.push(logger);
 }
 

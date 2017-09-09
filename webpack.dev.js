@@ -13,5 +13,7 @@ module.exports = merge(common, {
     contentBase: './dist',
     port: 7777,
     hot: true,
+    stats: 'errors-only',
+    overlay: true,
   },
 });

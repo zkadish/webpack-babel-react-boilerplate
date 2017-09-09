@@ -9,8 +9,7 @@
     "prebuild": "rm -rf dist",
     "build": "export NODE_ENV=production; webpack -p --config ./webpack.prod.js",
     "postbuild": "cp src/assets/favicon.ico dist/",
-    "prestart": "export NODE_ENV=development",
-    "start": "webpack-dev-server -d --progress --colors --hot --config ./webpack.dev.js"
+    "start": "export NODE_ENV=development; webpack-dev-server -d --progress --hot --config ./webpack.dev.js"
   },
   "keywords": [],
   "author": "",
