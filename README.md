@@ -1,13 +1,16 @@
 # React Weboack Bable Mohca Boilerplate
 
+Frame Works:
 - react
 - redux
 
-- babel
-- eslint - airb&b
-- html5 boilerplate
-- sass
+Build Tools:
 - webpack
+- babel
+- sass
+
+Testing:
+- eslint - airb&b
 - mocha
 - chai
 
