@@ -1,4 +1,4 @@
-# React Weboack Bable Mohca Boilerplate
+# React Webpack Babel Mohca Boilerplate
 
 Frame Works:
 - react
