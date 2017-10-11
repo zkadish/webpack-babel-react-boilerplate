@@ -1,13 +1,14 @@
 # React Webpack Babel Mohca Boilerplate
 
 Frame Works:
-- react
+- react 16
 - redux
 
 Build Tools:
 - webpack
 - babel
 - sass
+- react hot reload
 
 Testing:
 - eslint - airb&b

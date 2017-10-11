@@ -5,13 +5,16 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
 const extractSass = new ExtractTextWebpackPlugin({
-  filename: '[name].[contenthash].css',
+  filename: '[name].css',
   disable: process.env.NODE_ENV === 'development',
 });
 
 module.exports = {
-  entry: {
-    app: './src/index.js',
+  entry: { 
+    app: [
+      'react-hot-loader/patch',
+      './src/index.js',
+    ]
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -23,13 +26,14 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: [/node_modules/, /test/],
-        loader: 'react-hot-loader!babel-loader',
+        loader: 'babel-loader',
       },
       {
-        test: /\.scss|.css?$/,
+        test: /\.(scss|css)$/,
         loader: extractSass.extract({
           use: [
-            { loader: 'css-loader' },
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader',
             { loader: 'sass-loader' },
           ],
           fallback: 'style-loader',
@@ -45,7 +49,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'The Minimal React Webpack Babel Setup!',
+      title: 'Webpack Babel React Boilerplate!',
       template: 'src/index.html',
       inject: true,
     }),
