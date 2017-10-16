@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
@@ -10,11 +11,11 @@ const extractSass = new ExtractTextWebpackPlugin({
 });
 
 module.exports = {
-  entry: { 
+  entry: {
     app: [
       'react-hot-loader/patch',
       './src/index.js',
-    ]
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -48,6 +49,10 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.DefinePlugin({
+      DEVELOPMENT: JSON.stringify(process.env.NODE_ENV === 'development'),
+      PRODucTION: JSON.stringify(process.env.NODE_ENV === 'production'),
+    }),
     new HtmlWebpackPlugin({
       title: 'Webpack Babel React Boilerplate!',
       template: 'src/index.html',
