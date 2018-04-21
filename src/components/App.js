@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import Button from 'src/components/Button';
 import Value from 'src/components/Value';
@@ -21,13 +22,12 @@ function App({ increment, decrement }) {
   );
 }
 
-export default connect(
-  // state => ({
-  //   number: state.reducers,
-  // }),
+const appConnect = connect(
   null,
   dispatch => ({
     increment: () => dispatch(action.increment()),
     decrement: () => dispatch(action.decrement()),
   }),
 )(App);
+
+export default hot(module)(appConnect);

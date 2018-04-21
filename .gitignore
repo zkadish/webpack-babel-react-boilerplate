@@ -86,3 +86,6 @@ Temporary Items
 
 # mocha-webpack temp directory
 .tmp
+
+# vscode settins
+.vscode

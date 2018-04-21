@@ -1,21 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const MiniExtractTextPlugin = require('mini-css-extract-plugin');
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 
-const extractSass = new ExtractTextWebpackPlugin({
-  filename: '[name].css',
-  disable: process.env.NODE_ENV === 'development',
-});
-
+const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
   entry: {
-    app: [
-      'react-hot-loader/patch',
-      './src/index.js',
-    ],
+    app: './src/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -31,14 +24,12 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        loader: extractSass.extract({
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            'postcss-loader',
-            { loader: 'sass-loader' },
-          ],
-          fallback: 'style-loader',
-        }),
+        use: [
+          devMode ? 'style-loader' : MiniExtractTextPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
@@ -51,13 +42,16 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       DEVELOPMENT: JSON.stringify(process.env.NODE_ENV === 'development'),
-      PRODucTION: JSON.stringify(process.env.NODE_ENV === 'production'),
+      PRODUCTION: JSON.stringify(process.env.NODE_ENV === 'production'),
     }),
     new HtmlWebpackPlugin({
       title: 'Webpack Babel React Boilerplate!',
       template: 'src/index.html',
       inject: true,
     }),
-    extractSass,
+    new MiniExtractTextPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
 };
